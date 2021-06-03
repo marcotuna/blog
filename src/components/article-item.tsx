@@ -34,7 +34,7 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 				</div>
 				<div className="flex-1 bg-white dark:bg-fluencyy-700 p-6 flex flex-col justify-between">
 					<div className="flex-1">
-						<p className="text-sm leading-5 font-medium text-indigo-600 dark:text-fluencyy-200 flex justify-between">
+						<p className="text-sm leading-5 font-medium text-blue-600 dark:text-fluencyy-200 flex justify-between">
 							<span className="underline">
 								{frontmatter.category ? startCase(frontmatter.category) : 'Miscellaneous'}
 							</span>

@@ -27,19 +27,19 @@ const BlogPostPreview = (props: any) => {
 						</span>
 					</div>
 					<aside className="ml-2">
-						<p className="text-lg font-bold leading-none text-indigo-600 dark:text-fluencyy-400">Marco Santos</p>
+						<p className="text-lg font-bold leading-none text-blue-600 dark:text-fluencyy-400">Marco Santos</p>
 						<small className="text-xs leading-none text-smoke-500">
 							{format(date, 'LLLL dd, yyyy')} &middot; 7 min read
 						</small>
 						<p
-							className="text-body text-indigo-600 dark:text-fluencyy-300 leading-snug"
+							className="text-body text-blue-600 dark:text-fluencyy-300 leading-snug"
 							dangerouslySetInnerHTML={{
 								__html: description,
 							}}
 						></p>
 					</aside>
 				</div>
-				<h1 className="pt-4 font-bold text-4xl md:text-5xl leading-tight text-indigo-600 dark:text-fluencyy-400">
+				<h1 className="pt-4 font-bold text-4xl md:text-5xl leading-tight text-blue-600 dark:text-fluencyy-400">
 					{title}
 				</h1>
 			</header>
