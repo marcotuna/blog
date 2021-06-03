@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+
+publish_mode: editorial_workflow
+# local_backend - will be set by manual bootstrap!
+# site_url - will be set by manual bootstrap!
+
+media_folder: content/assets/uploads
+public_folder: '../assets/uploads/'
+
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - name: title
+        label: Title
+        widget: string
+        required: true
+        pattern: ['.{2,150}', 'Must have between 2 and 150 characters']
+      - name: description
+        label: Description
+        widget: string
+        required: true
+        pattern: ['.{2,250}', 'Must have between 2 and 250 characters']
+      - name: date
+        label: Date
+        widget: datetime
+        required: true
+      - name: category
+        label: Category
+        widget: string
+        required: false
+        pattern: ['.{2,50}', 'Must have between 2 and 50 characters']
+      - name: featuredImage
+        label: Featured Image
+        widget: 'image'
+        required: false
+      - name: published
+        label: Published
+        widget: 'boolean'
+        required: true
+        default: false
+      - name: body
+        label: Body
+        widget: markdown
+        required: true
