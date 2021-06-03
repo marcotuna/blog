@@ -39,7 +39,7 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 								{frontmatter.category ? startCase(frontmatter.category) : 'Miscellaneous'}
 							</span>
 							{!frontmatter.published && (
-								<span className="px-1 rounded no-underline bg-indigo-200 text-indigo-800 dark:bg-fluencyy-300 dark:text-fluencyy-800">
+								<span className="px-1 rounded no-underline bg-blue-200 text-blue-800 dark:bg-fluencyy-300 dark:text-fluencyy-800">
 									unpublished
 								</span>
 							)}
