@@ -14,7 +14,6 @@ module.exports = {
 	plugins: [
 		'gatsby-plugin-typescript',
 		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-postcss',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
@@ -50,17 +49,11 @@ module.exports = {
 							wrapperStyle: `margin-bottom: 1.0725rem`,
 						},
 					},
-					'gatsby-remark-reading-time',
+					'gatsby-remark-reading-time-2',
 					'gatsby-remark-prismjs',
 					'gatsby-remark-copy-linked-files',
 					'gatsby-remark-smartypants',
 				],
-			},
-		},
-		{
-			resolve: 'gatsby-plugin-google-analytics',
-			options: {
-				trackingId: 'UA-162015635-1',
 			},
 		},
 		{

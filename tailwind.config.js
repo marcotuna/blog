@@ -34,10 +34,9 @@ module.exports = {
 		},
 	},
 	variants: {
-		backgroundColor: ['responsive', 'hover', 'focus', 'dark', 'dark-hover', 'dark-focus', 'dark-active'],
-		borderColor: ['responsive', 'hover', 'focus', 'dark', 'dark-focus', 'dark-focus-within'],
+		backgroundColor: ['responsive', 'hover', 'focus'],
+		borderColor: ['responsive', 'hover', 'focus'],
 		boxShadow: ['responsive', 'hover', 'focus', 'focus-within'],
-		textColor: ['responsive', 'hover', 'focus', 'dark', 'dark-hover', 'dark-focus', 'dark-active'],
-	},
-	plugins: [require('tailwindcss-dark-mode')(), require('@tailwindcss/ui')],
+		textColor: ['responsive', 'hover', 'focus'],
+	}
 };
