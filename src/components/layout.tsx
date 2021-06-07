@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
 					&copy; {new Date().getFullYear()}{' '}
 					<a
 						className="underline font-mono font-bold hover:text-smoke-800 dark-hover:text-smoke-200"
-						href="https://www.marcopsantos.com"
+						href="https://marcopsantos.com"
 					>
 						Marco Santos
 					</a>
