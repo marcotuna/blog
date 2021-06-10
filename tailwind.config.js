@@ -38,5 +38,5 @@ module.exports = {
 		borderColor: ['responsive', 'hover', 'focus'],
 		boxShadow: ['responsive', 'hover', 'focus', 'focus-within'],
 		textColor: ['responsive', 'hover', 'focus'],
-	}
+	},
 };
