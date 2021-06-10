@@ -6,6 +6,7 @@ category: Projects
 featuredImage: ../assets/uploads/nomad_csi_scaleway.png
 published: true
 ---
+
 I've been an early adopter of Nomad and Scaleway, use them for both personal and professional workloads and I've been very happy with both so far however there was a limitation until recently...
 
 Running stateless services was not possible until the release of [Nomad 0.11](https://www.hashicorp.com/blog/hashicorp-nomad-container-storage-interface-csi-beta) and Scaleway support for Block Storage on Kubernetes.
@@ -14,7 +15,7 @@ Using CSI with Nomad is still in Beta, as I am writing nomad is at version [1.1.
 
 ## How CSI works on Nomad?
 
-Nomad CSI works by registering a controller plugin (coordinate block storage volumes)  and a node plugin (mounting block storage on nodes), Nomad already provides documentation on how to do it on [AWS](https://learn.hashicorp.com/tutorials/nomad/stateful-workloads-csi-volumes?in=nomad/stateful-workloads). 
+Nomad CSI works by registering a controller plugin (coordinate block storage volumes) and a node plugin (mounting block storage on nodes), Nomad already provides documentation on how to do it on [AWS](https://learn.hashicorp.com/tutorials/nomad/stateful-workloads-csi-volumes?in=nomad/stateful-workloads).
 
 ## Nomad with Scaleway
 
@@ -22,20 +23,22 @@ Scaleway implements also its version of CSI.
 
 The following templates are based on the Nomad documentation with a few tweaks.
 
-The major changes are:  
+The major changes are:
 
-* Docker image was replaced with the one supported by scaleway [scaleway/scaleway-csi:master](https://github.com/scaleway/scaleway-csi)
-* Appropriate environment variables added so CSI plugin can register volumes on the scaleway platform ([taken from here](https://github.com/scaleway/scaleway-csi/blob/master/deploy/kubernetes/scaleway-secret.yaml))
+- Docker image was replaced with the one supported by scaleway [scaleway/scaleway-csi:master](https://github.com/scaleway/scaleway-csi)
+- Appropriate environment variables added so CSI plugin can register volumes on the scaleway platform ([taken from here](https://github.com/scaleway/scaleway-csi/blob/master/deploy/kubernetes/scaleway-secret.yaml))
 
 Environment variables must be populated accordingly with the following values:
 
-* SCW_ACCESS_KEY, SCW_SECRET_KEY
+- SCW_ACCESS_KEY, SCW_SECRET_KEY
 
   Available after the generation of an account [API Key](https://console.scaleway.com/project/credentials)
-* SCW_DEFAULT_PROJECT_ID
+
+- SCW_DEFAULT_PROJECT_ID
 
   Account [Project ID](https://console.scaleway.com/project/settings)
-* SCW_DEFAULT_ZONE
+
+- SCW_DEFAULT_ZONE
 
   [Zone](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones#zones) (fr-par-1, fr-par-2, ...)
 
@@ -85,6 +88,7 @@ job "plugin-scaleway-bs-controller" {
 ```
 
 `nomad job run plugin-scaleway-bs-nodes.hcl`
+
 ```hcl
 job "plugin-scaleway-bs-nodes" {
   datacenters = ["scaleway-fr1"]
@@ -166,7 +170,7 @@ capability {
 
 ## Running a job using CSI
 
-The following template will schedule a container using mongodb docker image listening on port 27017. 
+The following template will schedule a container using mongodb docker image listening on port 27017.
 
 ```hcl
 job "mongodb-scw-fr1" {
@@ -239,5 +243,6 @@ job "mongodb-scw-fr1" {
 ```
 
 ## Known and detected problems
+
 - When migrating volume(s) between nodes there's downtime while nomad attempts to migrate the volume(s)
 - It might happen during a volume migration it won't schedule properly, when it happens manual remediations should be taken such as deregistering the volume `nomad volume deregister -force volume_name` and registering it again.
