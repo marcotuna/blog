@@ -11,11 +11,6 @@ const BlogIndex = ({ data }) => {
 	return (
 		<Layout>
 			<Head title="All posts" slug="" />
-			<h1 className="pb-4 text-body lg:text-lg lg:block tracking-tight text-blue-400 dark:text-fluencyy-400 select-none cursor-default">
-				<span>&gt;_ </span>
-				<span className="text-blue-800 dark:text-fluencyy-200">{data.site.siteMetadata.description}</span>
-				<span className="blink"> |</span>
-			</h1>
 			<section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{posts
 					.filter(({ node }: any) => IS_DEV || node.frontmatter.published)

@@ -10,12 +10,13 @@ const Layout = ({ children }) => {
 				siteMetadata {
 					title
 					description
+					logoUrl
 				}
 			}
 		}
 	`);
 
-	const { title, description } = data.site.siteMetadata;
+	const { title, description, logoUrl } = data.site.siteMetadata;
 
 	const LayoutHeader = () => {
 		return (
@@ -23,10 +24,10 @@ const Layout = ({ children }) => {
 				<nav className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
 					<Link
 						to={`/`}
-						className="outline-none font-mono font-bold rounded focus:shadow-outline-gray px-2 py-1 border-2 text-smoke-900 border-smoke-900 dark:bg-smoke-900 dark:text-smoke-200 dark:border-smoke-200 hover:bg-smoke-900 hover:text-smoke-200 dark-hover:bg-smoke-200 dark-hover:text-smoke-900"
 					>
-						{title}
+						<img src={logoUrl} alt="MarcoPSantos logo" width="128"/>
 					</Link>
+					<span className="text-blue-800 dark:text-fluencyy-200 p-5">{description}</span>
 				</nav>
 			</header>
 		);

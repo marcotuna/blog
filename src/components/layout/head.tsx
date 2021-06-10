@@ -140,7 +140,7 @@ export const Head: FunctionComponent<HeadProps> = ({
 `
 	);
 	const metaDescription = description || site.siteMetadata.description;
-	const metaPreview = `${site.siteMetadata.siteUrl}${previewImage || preview.childImageSharp.gatsbyImageData.src}`;
+	const metaPreview = `${site.siteMetadata.siteUrl}${previewImage || preview.childImageSharp.gatsbyImageData.images.fallback.src}`;
 	const metaUrl = slug
 		? `${site.siteMetadata.siteUrl}${slug.startsWith('/') ? '' : '/'}${slug}`
 		: site.siteMetadata.siteUrl;

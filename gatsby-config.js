@@ -6,7 +6,7 @@ const SITE_METADATA = {
 	author: 'Marco Santos',
 	description: 'Discovering the undiscovered... with technology',
 	siteUrl: 'https://marcopsantos.com',
-	logoUrl: 'https://res.cloudinary.com/consoleblog/image/upload/v1594078278/logo.png',
+	logoUrl: 'https://res.cloudinary.com/marcopsantos/image/upload/v1623336937/marcopsantos_nwb00h.png',
 };
 
 module.exports = {
@@ -133,7 +133,7 @@ module.exports = {
 			options: {
 				modulePath: resolve('src/cms/index.tsx'),
 				manualInit: true,
-				htmlTitle: 'CMS | console.blog',
+				htmlTitle: 'CMS',
 			},
 		},
 		{
