@@ -147,14 +147,13 @@ job "plugin-scaleway-bs-nodes" {
 }
 ```
 
-`nomad volume create block-storage-v1.hcl`
+Now it's time for the volume registration, there are two ways to do it, if you already have a block storage volume you must populate the template below with the entry `external_id` (can be fetched from the Scaleway website in the details section of the existing block storage volume), the result should be similar to the following excerpt `external_id = "fr-par-1/6142201f-6902-4aba-bcc7-e49c15234206"`, if it's a volume from scratch just copy the template below and go to the next steps.  
 
 ```hcl
 # volume registration
 type = "csi"
-id = "block-storage-v1"
-name = "block-storage-v1"
-external_id = "fr-par-1/6142201f-6902-4aba-bcc7-e49c15234206"
+id = "block-storage"
+name = "block-storage"
 plugin_id = "csi.scaleway.com"
 zone = "fr-par-1"
 capacity_max = "25G"
@@ -168,8 +167,13 @@ capability {
 }
 ```
 
+`nomad volume create block-storage.hcl`
+
+The `entry_id` will be returned and can be populated in the template.   
+
 ## Running a job using CSI
 
+Now it's time to run a statefull job.  
 The following template will schedule a container using mongodb docker image listening on port 27017.
 
 ```hcl
@@ -241,6 +245,8 @@ job "mongodb-scw-fr1" {
   }
 }
 ```
+
+In case of the deployment succeeds a MongoDB service should be running and can migrate between Nomad clients without losing data.  
 
 ## Known and detected problems
 
