@@ -2,7 +2,7 @@ import CMS from 'netlify-cms-app';
 // import cloudinary from 'netlify-cms-media-library-cloudinary';
 import React, { useEffect } from 'react';
 import { render } from 'react-dom';
-import '../styles/main.css';
+import '../styles/main.scss';
 import BlogPostPreview from './blog.preview';
 
 const IS_DEV = process.env.NODE_ENV === 'development';

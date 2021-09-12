@@ -11,8 +11,6 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
 	const featuredImage = post.frontmatter.featuredImage;
 
-	console.log(post)
-
 	return (
 		<Layout>
 			<Head

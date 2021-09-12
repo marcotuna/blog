@@ -12,6 +12,7 @@ const SITE_METADATA = {
 module.exports = {
 	siteMetadata: SITE_METADATA,
 	plugins: [
+		'gatsby-plugin-sass',
 		'gatsby-plugin-typescript',
 		'gatsby-plugin-react-helmet',
 		{
@@ -152,7 +153,6 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-sitemap',
-		'gatsby-plugin-offline',
 		'gatsby-plugin-netlify'
 	],
 };
