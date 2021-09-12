@@ -22,10 +22,8 @@ const Layout = ({ children }) => {
 		return (
 			<header className="w-full h-20 fixed z-50 border-b border-smoke-200 bg-gray-50 dark:bg-smoke-900">
 				<nav className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
-					<Link
-						to={`/`}
-					>
-						<img src={logoUrl} alt="MarcoPSantos logo" width="128"/>
+					<Link to={`/`}>
+						<img src={logoUrl} alt="MarcoPSantos logo" width="128" />
 					</Link>
 					<span className="text-blue-800 dark:text-fluencyy-200 p-5">{description}</span>
 				</nav>

@@ -18,9 +18,9 @@ const BlogPostPreview = (props: any) => {
 						<span
 							className="text-white cursor-pointer w-full h-full flex items-center justify-center"
 							onClick={() => {
-								(document.querySelector(
-									'iframe[class*="css-"]'
-								) as any)?.contentDocument?.documentElement?.classList.toggle(DARK_MODE_INDICATOR_CLASS);
+								(
+									document.querySelector('iframe[class*="css-"]') as any
+								)?.contentDocument?.documentElement?.classList.toggle(DARK_MODE_INDICATOR_CLASS);
 							}}
 						>
 							Lights

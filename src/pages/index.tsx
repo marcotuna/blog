@@ -31,38 +31,39 @@ const BlogIndex = ({ data }) => {
 
 export default BlogIndex;
 
-export const pageQuery = graphql`{
-  site {
-    siteMetadata {
-      title
-      description
-    }
-  }
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-    edges {
-      node {
-        excerpt
-        fields {
-          slug
-          readingTime {
-            text
-          }
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          datetime: date
-          title
-          description
-          category
-          published
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(width: 500, layout: CONSTRAINED)
-            }
-          }
-        }
-      }
-    }
-  }
-}
+export const pageQuery = graphql`
+	{
+		site {
+			siteMetadata {
+				title
+				description
+			}
+		}
+		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+			edges {
+				node {
+					excerpt
+					fields {
+						slug
+						readingTime {
+							text
+						}
+					}
+					frontmatter {
+						date(formatString: "MMMM DD, YYYY")
+						datetime: date
+						title
+						description
+						category
+						published
+						featuredImage {
+							childImageSharp {
+								gatsbyImageData(width: 500, layout: CONSTRAINED)
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 `;

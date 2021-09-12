@@ -121,26 +121,29 @@ export const Head: FunctionComponent<HeadProps> = ({
 	isBlogPost = false,
 }: HeadProps): ReactElement => {
 	const { site, preview } = useStaticQuery(
-		graphql`{
-  site {
-    siteMetadata {
-      title
-      description
-      author
-      logoUrl
-      siteUrl
-    }
-  }
-  preview: file(absolutePath: {regex: "/social-card.png/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 600, layout: FIXED)
-    }
-  }
-}
-`
+		graphql`
+			{
+				site {
+					siteMetadata {
+						title
+						description
+						author
+						logoUrl
+						siteUrl
+					}
+				}
+				preview: file(absolutePath: { regex: "/social-card.png/" }) {
+					childImageSharp {
+						gatsbyImageData(width: 600, layout: FIXED)
+					}
+				}
+			}
+		`
 	);
 	const metaDescription = description || site.siteMetadata.description;
-	const metaPreview = `${site.siteMetadata.siteUrl}${previewImage || preview.childImageSharp.gatsbyImageData.images.fallback.src}`;
+	const metaPreview = `${site.siteMetadata.siteUrl}${
+		previewImage || preview.childImageSharp.gatsbyImageData.images.fallback.src
+	}`;
 	const metaUrl = slug
 		? `${site.siteMetadata.siteUrl}${slug.startsWith('/') ? '' : '/'}${slug}`
 		: site.siteMetadata.siteUrl;

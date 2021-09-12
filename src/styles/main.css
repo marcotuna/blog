@@ -8,8 +8,6 @@
 
 @tailwind utilities;
 
-@import url('./_markdown.css');
-
 html {
 	@apply bg-gray-50;
 }
@@ -30,4 +28,33 @@ html.mode-dark {
 	50% {
 		color: currentColor;
 	}
+}
+
+.markdown a, .markdown strong, .markdown :not(pre) > code[class*='language-'] {
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+.markdown h1 {
+	@apply leading-tight border-b text-4xl font-bold mb-4 mt-6 pb-2;
+}
+
+.markdown h2 {
+	@apply leading-tight border-b text-2xl font-bold mb-4 mt-6 pb-2;
+}
+
+.markdown h3{
+	@apply leading-snug text-lg font-bold mb-4 mt-6;
+}
+
+.markdown h4 {
+	@apply leading-none text-base font-bold mb-4 mt-6;
+}
+
+.markdown h5 {
+	@apply leading-tight text-sm font-bold mb-4 mt-6;
+}
+
+.markdown h6 {
+	@apply leading-tight text-sm font-bold mb-4 mt-6;
 }

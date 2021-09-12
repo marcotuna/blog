@@ -11,8 +11,10 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
 	const featuredImage = post.frontmatter.featuredImage;
 
+	console.log(post)
+
 	return (
-        <Layout>
+		<Layout>
 			<Head
 				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
@@ -81,37 +83,38 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 				)}
 			</nav>
 		</Layout>
-    );
+	);
 };
 
 export default BlogPostTemplate;
 
-export const pageQuery = graphql`query BlogPostBySlug($slug: String!) {
-  site {
-    siteMetadata {
-      title
-    }
-  }
-  markdownRemark(fields: {slug: {eq: $slug}}) {
-    id
-    excerpt(pruneLength: 160)
-    html
-    frontmatter {
-      title
-      date(formatString: "MMMM DD, YYYY")
-      description
-      published
-      featuredImage {
-        childImageSharp {
-          gatsbyImageData(width: 600, layout: FIXED)
-        }
-      }
-    }
-    fields {
-      readingTime {
-        text
-      }
-    }
-  }
-}
+export const pageQuery = graphql`
+	query BlogPostBySlug($slug: String!) {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+		markdownRemark(fields: { slug: { eq: $slug } }) {
+			id
+			excerpt(pruneLength: 160)
+			html
+			frontmatter {
+				title
+				date(formatString: "MMMM DD, YYYY")
+				description
+				published
+				featuredImage {
+					childImageSharp {
+						gatsbyImageData(width: 600, layout: FIXED)
+					}
+				}
+			}
+			fields {
+				readingTime {
+					text
+				}
+			}
+		}
+	}
 `;

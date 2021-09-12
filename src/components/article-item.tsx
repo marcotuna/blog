@@ -1,22 +1,23 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { startCase } from 'lodash';
 import React from 'react';
 
 const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 	const { placeholder } = useStaticQuery(
-		graphql`{
-  placeholder: file(absolutePath: {regex: "/blog-placeholder.png/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 600, layout: CONSTRAINED)
-    }
-  }
-}
-`
+		graphql`
+			{
+				placeholder: file(absolutePath: { regex: "/blog-placeholder.png/" }) {
+					childImageSharp {
+						gatsbyImageData(width: 600, layout: CONSTRAINED)
+					}
+				}
+			}
+		`
 	);
 
 	return (
-        <Link
+		<Link
 			to={slug}
 			title={title}
 			className="flex outline-none rounded-lg focus:shadow-outline-gray hover:shadow-2xl transition-shadow duration-200"
@@ -24,10 +25,7 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 			<article className="flex-auto flex flex-col border-2 border-transparent dark:border-smoke-200 rounded-lg shadow-lg overflow-hidden">
 				<div className="flex-shrink-0">
 					{frontmatter.featuredImage ? (
-						<GatsbyImage
-                            image={frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-                            className="h-48"
-							alt="" />
+						<GatsbyImage image={frontmatter.featuredImage.childImageSharp.gatsbyImageData} className="h-48" alt="" />
 					) : (
 						<GatsbyImage image={placeholder.childImageSharp.gatsbyImageData} className="h-48" alt="" />
 					)}
@@ -64,7 +62,7 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 				</div>
 			</article>
 		</Link>
-    );
+	);
 };
 
 export default ArticleItem;
