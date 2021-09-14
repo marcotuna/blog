@@ -1,7 +1,8 @@
 backend:
-  name: git-gateway
+  name: proxy
+  proxy_url: ''
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 # local_backend - will be set by manual bootstrap!
 # site_url - will be set by manual bootstrap!
 

@@ -21,27 +21,17 @@ const createRoot = () => {
 };
 
 const CMS_APP = () => {
-	useEffect(() => {
-		CMS.registerPreviewTemplate('blog', BlogPostPreview);
+	CMS.registerPreviewTemplate('blog', BlogPostPreview);
 
-		CMS.init({
-			config: {
-				local_backend: IS_DEV
-					? {
-							url: 'http://localhost:9081/api/v1',
-					  }
-					: false,
-				site_url: IS_DEV ? 'http://localhost:9000' : 'https://marcopsantos.com',
-				// media_library: {
-				// 	name: 'cloudinary',
-				// 	config: {
-				// 		cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-				// 		api_key: process.env.CLOUDINARY_API_KEY,
-				// 	},
-				// },
-			},
-		} as any);
-	}, []);
+	// For some reason this isn't working properly
+	CMS.init({
+		config: {
+			backend: {
+				name: 'proxy',
+				proxy_url: (process.env.CMS_PROXY_URL + '/api/v1') || 'http://localhost:9091/api/v1',
+			} 
+		},	
+	} as any);
 
 	return <div id="nc-root" className="stencilbook-custom-cms"></div>;
 };

@@ -1,6 +1,5 @@
 import { format } from 'date-fns';
 import React from 'react';
-import { DARK_MODE_INDICATOR_CLASS } from '../util/theme.constants';
 
 const BlogPostPreview = (props: any) => {
 	const { entry, widgetFor } = props;
@@ -17,19 +16,12 @@ const BlogPostPreview = (props: any) => {
 					<div className="flex-shrink-0 bg-smoke-900 w-20 h-20 rounded-full border-2 border-smoke-200">
 						<span
 							className="text-white cursor-pointer w-full h-full flex items-center justify-center"
-							onClick={() => {
-								(
-									document.querySelector('iframe[class*="css-"]') as any
-								)?.contentDocument?.documentElement?.classList.toggle(DARK_MODE_INDICATOR_CLASS);
-							}}
-						>
-							Lights
-						</span>
+						></span>
 					</div>
 					<aside className="ml-2">
-						<p className="text-lg font-bold leading-none text-blue-600 dark:text-fluencyy-400">Marco Santos</p>
+						<p className="text-lg font-bold leading-none text-blue-600 dark:text-fluencyy-400">Author Name</p>
 						<small className="text-xs leading-none text-smoke-500">
-							{format(date, 'LLLL dd, yyyy')} &middot; 7 min read
+							{format(date, 'LLLL dd, yyyy')} &middot; 0 min read
 						</small>
 						<p
 							className="text-body text-blue-600 dark:text-fluencyy-300 leading-snug"
