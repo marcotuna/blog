@@ -5,6 +5,7 @@ image: gitpod/workspace-full
 ports:
   - port: 9081
     onOpen: ignore
+    visibility: public
   - port: 8000
     onOpen: open-browser
 
@@ -15,4 +16,6 @@ tasks:
   - command: |
       yarn cms-proxy
   - command: |
-      source ./scripts/set_cms_proxy.sh && yarn develop
+      source ./scripts/set_cms_proxy.sh;
+      ./scripts/set_env_vars.sh;
+      yarn develop
