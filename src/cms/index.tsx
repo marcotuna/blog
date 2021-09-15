@@ -22,13 +22,14 @@ const createRoot = () => {
 
 const CMS_APP = () => {
 	CMS.registerPreviewTemplate('blog', BlogPostPreview);
-
+	console.log(process.env.CMS_PROXY_URL)
+	console.log(process.env.GATSBY_CMS_PROXY_URL)
 	// For some reason this isn't working properly
 	CMS.init({
 		config: {
 			backend: {
 				name: 'proxy',
-				proxy_url: (process.env.CMS_PROXY_URL + '/api/v1') || 'http://localhost:9091/api/v1',
+				proxy_url: (process.env.CMS_PROXY_URL || 'http://localhost:8000') + '/api/v1'
 			} 
 		},	
 	} as any);

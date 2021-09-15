@@ -1,6 +1,11 @@
 const { resolve } = require('path');
 const { theme } = require('./tailwind.config');
 
+// Load dotenv configuration
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV || 'development'}`
+})
+
 const SITE_METADATA = {
 	title: 'marcopsantos',
 	author: 'Marco Santos',

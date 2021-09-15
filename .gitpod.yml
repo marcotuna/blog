@@ -13,8 +13,6 @@ tasks:
   - init: |
       yarn install
   - command: |
-      yarn develop
-  - command: |
       yarn cms-proxy
   - command: |
-      ./scripts/set_cms_proxy.sh
+      source ./scripts/set_cms_proxy.sh && yarn develop
