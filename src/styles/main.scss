@@ -59,6 +59,8 @@ html.mode-dark {
 
 	p > img {
 		@apply block mx-auto max-w-full object-contain py-6;
+		max-width: 38em;
+		width: auto;
 	}
 
 	strong,

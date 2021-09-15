@@ -142,6 +142,10 @@ job "plugin-scaleway-bs-nodes" {
 }
 ```
 
+It should be visible in the plugins section as shown in the picture
+
+![Nomad CSI Scaleway Plugin](../assets/uploads/nomad_csi_scaleway_storage_ui.png "Nomad CSI Scaleway Plugin")
+
 Now it's time for the volume registration, there are two ways to do it, if you already have a block storage volume you must populate the template below with the entry `external_id` (can be fetched from the Scaleway website in the details section of the existing block storage volume), the result should be similar to the following excerpt `external_id = "fr-par-1/6142201f-6902-4aba-bcc7-e49c15234206"`, if it's a volume from scratch just copy the template below to a file named `block-storage.hcl` or the name you desire.
 
 ```hcl

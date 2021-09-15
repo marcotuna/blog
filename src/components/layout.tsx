@@ -1,7 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, { useContext } from 'react';
 import '../styles/main.scss';
-import { ThemeContext } from '../theme';
 
 const Layout = ({ children }) => {
 	const data = useStaticQuery(graphql`

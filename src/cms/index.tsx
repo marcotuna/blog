@@ -22,8 +22,7 @@ const createRoot = () => {
 
 const CMS_APP = () => {
 	CMS.registerPreviewTemplate('blog', BlogPostPreview);
-	console.log(process.env.CMS_PROXY_URL)
-	console.log(process.env.GATSBY_CMS_PROXY_URL)
+
 	// For some reason this isn't working properly
 	CMS.init({
 		config: {

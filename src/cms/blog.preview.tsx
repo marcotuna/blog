@@ -31,11 +31,11 @@ const BlogPostPreview = (props: any) => {
 						></p>
 					</aside>
 				</div>
-				<h1 className="pt-4 font-bold text-4xl md:text-5xl leading-tight text-blue-600 dark:text-fluencyy-400">
+				<h1 className="pt-10 font-bold text-4xl md:text-5xl leading-tight text-blue-600 dark:text-fluencyy-400">
 					{title}
 				</h1>
 			</header>
-			<hr className="mt-2 mb-16" />
+			<hr className="mt-2 mb-8" />
 			<section className="markdown text-lg md:text-base tracking-wide leading-relaxed md:leading-loose text-smoke-900 dark:text-smoke-200">
 				{body}
 			</section>
