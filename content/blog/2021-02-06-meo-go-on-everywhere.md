@@ -1,8 +1,9 @@
 ---
-title: Meo GO everywhere
+title: Meo Go anywhere
 description: Using Meo GO with different network operators
 date: 2021-05-29T18:15:00.000Z
 category: Projects
+featuredImage: ../assets/uploads/meo-go-anytime-anywhere.png
 published: true
 ---
 
