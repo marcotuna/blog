@@ -6,10 +6,9 @@ category: Projects
 featuredImage: ../assets/uploads/nomad_csi_scaleway.png
 published: true
 ---
-
 I've been an early adopter of Nomad and Scaleway, use them for both personal and professional workloads and I've been very happy with both so far however there was a limitation until recently...
 
-Running stateless services was not possible until the release of [Nomad 0.11](https://www.hashicorp.com/blog/hashicorp-nomad-container-storage-interface-csi-beta) and Scaleway support for Block Storage on Kubernetes.
+Running stateless services with persistent volumes was not possible until the release of [Nomad 0.11](https://www.hashicorp.com/blog/hashicorp-nomad-container-storage-interface-csi-beta) with CSI support (Container Storage Interface) and Scaleway support for Block Storage.
 
 Using CSI with Nomad is still in Beta, as I am writing nomad is at version [1.1.0](https://github.com/hashicorp/nomad/releases/tag/v1.1.0) and they have been releasing improvements and bug fixing for their integration, some of the limitations and headaches that I faced during the integration of both are now solved.
 
@@ -25,20 +24,18 @@ The following templates are based on the Nomad documentation with a few tweaks.
 
 The major changes are:
 
-- Docker image was replaced with the one supported by scaleway [scaleway/scaleway-csi:master](https://github.com/scaleway/scaleway-csi)
-- Appropriate environment variables added so CSI plugin can register volumes on the scaleway platform ([taken from here](https://github.com/scaleway/scaleway-csi/blob/master/deploy/kubernetes/scaleway-secret.yaml))
+* Docker image was replaced with the one supported by scaleway [scaleway/scaleway-csi:master](https://github.com/scaleway/scaleway-csi)
+* Appropriate environment variables added so CSI plugin can register volumes on the scaleway platform ([taken from here](https://github.com/scaleway/scaleway-csi/blob/master/deploy/kubernetes/scaleway-secret.yaml))
 
 Environment variables must be populated accordingly with the following values:
 
-- SCW_ACCESS_KEY, SCW_SECRET_KEY
+* SCW_ACCESS_KEY, SCW_SECRET_KEY
 
   Available after the generation of an account [API Key](https://console.scaleway.com/project/credentials)
-
-- SCW_DEFAULT_PROJECT_ID
+* SCW_DEFAULT_PROJECT_ID
 
   Account [Project ID](https://console.scaleway.com/project/settings)
-
-- SCW_DEFAULT_ZONE
+* SCW_DEFAULT_ZONE
 
   [Zone](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones#zones) (fr-par-1, fr-par-2, ...)
 
@@ -173,7 +170,7 @@ The `entry_id` will be returned and can be populated in the template.
 
 ## Running a job using CSI
 
-Now it's time to run a statefull job.  
+Now it's time to run a statefull job.\
 The following template will schedule a container using mongodb docker image listening on port 27017.
 
 ```hcl
@@ -250,5 +247,5 @@ In case of the deployment succeeds a MongoDB service should be running and can m
 
 ## Known and detected problems
 
-- When migrating volume(s) between nodes there's downtime while nomad attempts to migrate the volume(s)
-- It might happen during a volume migration it won't schedule properly, when it happens manual remediations should be taken such as deregistering the volume `nomad volume deregister -force volume_name` and registering it again.
+* When migrating volume(s) between nodes there's downtime while nomad attempts to migrate the volume(s)
+* It might happen during a volume migration it won't schedule properly, when it happens manual remediations should be taken such as deregistering the volume `nomad volume deregister -force volume_name` and registering it again.
