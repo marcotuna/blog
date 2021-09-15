@@ -18,11 +18,7 @@ Nomad CSI works by registering a controller plugin (coordinate block storage vol
 
 ## Nomad with Scaleway
 
-Scaleway implements also its version of CSI.
-
-The following templates are based on the Nomad documentation with a few tweaks.
-
-The major changes are:
+Scaleway implements also its version of CSI, the major changes are:
 
 * Docker image was replaced with the one supported by scaleway [scaleway/scaleway-csi:master](https://github.com/scaleway/scaleway-csi)
 * Appropriate environment variables added so CSI plugin can register volumes on the scaleway platform ([taken from here](https://github.com/scaleway/scaleway-csi/blob/master/deploy/kubernetes/scaleway-secret.yaml))
@@ -38,6 +34,8 @@ Environment variables must be populated accordingly with the following values:
 * SCW_DEFAULT_ZONE
 
   [Zone](https://registry.terraform.io/providers/scaleway/scaleway/latest/docs/guides/regions_and_zones#zones) (fr-par-1, fr-par-2, ...)
+
+The following templates are based on the Nomad documentation with a few tweaks. Running the following commands will start scheduling in the Nomad cluster.
 
 `nomad job run plugin-scaleway-bs-controller.hcl`
 
@@ -144,7 +142,7 @@ job "plugin-scaleway-bs-nodes" {
 }
 ```
 
-Now it's time for the volume registration, there are two ways to do it, if you already have a block storage volume you must populate the template below with the entry `external_id` (can be fetched from the Scaleway website in the details section of the existing block storage volume), the result should be similar to the following excerpt `external_id = "fr-par-1/6142201f-6902-4aba-bcc7-e49c15234206"`, if it's a volume from scratch just copy the template below and go to the next steps.  
+Now it's time for the volume registration, there are two ways to do it, if you already have a block storage volume you must populate the template below with the entry `external_id` (can be fetched from the Scaleway website in the details section of the existing block storage volume), the result should be similar to the following excerpt `external_id = "fr-par-1/6142201f-6902-4aba-bcc7-e49c15234206"`, if it's a volume from scratch just copy the template below to a file named `block-storage.hcl` or the name you desire.
 
 ```hcl
 # volume registration
@@ -243,7 +241,9 @@ job "mongodb-scw-fr1" {
 }
 ```
 
-In case of the deployment succeeds a MongoDB service should be running and can migrate between Nomad clients without losing data.  
+`nomad job run mongodb.hcl`
+
+In case the deployment succeeds a MongoDB service should start and can be migrated between servers (Nomad clients) without losing data.  
 
 ## Known and detected problems
 
