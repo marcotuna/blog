@@ -1,7 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	purge: false,
+	content: [
+		'./public/**/*.html',
+		'./src/**/*.{js,jsx,ts,tsx}',
+	],
 	theme: {
 		extend: {
 			colors: {
@@ -32,11 +35,5 @@ module.exports = {
 				sans: ['Sen', ...defaultTheme.fontFamily.sans],
 			},
 		},
-	},
-	variants: {
-		backgroundColor: ['responsive', 'hover', 'focus'],
-		borderColor: ['responsive', 'hover', 'focus'],
-		boxShadow: ['responsive', 'hover', 'focus', 'focus-within'],
-		textColor: ['responsive', 'hover', 'focus'],
 	},
 };

@@ -22,7 +22,7 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 			title={title}
 			className="flex outline-none rounded-lg focus:shadow-outline-gray hover:shadow-2xl transition-shadow duration-200"
 		>
-			<article className="flex-auto flex flex-col border-2 border-transparent dark:border-smoke-200 rounded-lg shadow-lg overflow-hidden">
+			<article className="flex-auto flex flex-col border-2 border-transparent rounded-lg shadow-lg overflow-hidden">
 				<div className="flex-shrink-0">
 					{frontmatter.featuredImage ? (
 						<GatsbyImage image={frontmatter.featuredImage.childImageSharp.gatsbyImageData} className="h-48" alt="" />
@@ -30,22 +30,22 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 						<GatsbyImage image={placeholder.childImageSharp.gatsbyImageData} className="h-48" alt="" />
 					)}
 				</div>
-				<div className="flex-1 bg-white dark:bg-fluencyy-700 p-6 flex flex-col justify-between">
+				<div className="flex-1 bg-white p-6 flex flex-col justify-between">
 					<div className="flex-1">
-						<p className="text-sm leading-5 font-medium text-blue-600 dark:text-fluencyy-200 flex justify-between">
+						<p className="text-sm leading-5 font-medium text-blue-600 flex justify-between">
 							<span className="underline">
 								{frontmatter.category ? startCase(frontmatter.category) : 'Miscellaneous'}
 							</span>
 							{!frontmatter.published && (
-								<span className="px-1 rounded no-underline bg-blue-200 text-blue-800 dark:bg-fluencyy-300 dark:text-fluencyy-800">
+								<span className="px-1 rounded no-underline bg-blue-200 text-blue-800">
 									unpublished
 								</span>
 							)}
 						</p>
 						<div>
-							<h3 className="mt-2 text-2xl leading-7 font-semibold text-smoke-900 dark:text-fluencyy-300">{title}</h3>
+							<h3 className="mt-2 text-2xl leading-7 font-semibold text-smoke-900">{title}</h3>
 							<p
-								className="mt-3 text-base leading-5 text-smoke-500 dark:text-fluencyy-400"
+								className="mt-3 text-base leading-5 text-smoke-500"
 								dangerouslySetInnerHTML={{
 									__html: frontmatter.description || excerpt,
 								}}
@@ -53,7 +53,7 @@ const ArticleItem = ({ title, slug, frontmatter, readingTime, excerpt }) => {
 						</div>
 					</div>
 					<div className="mt-6 flex items-center">
-						<div className="flex text-sm leading-5 text-smoke-500 dark:text-fluencyy-200">
+						<div className="flex text-sm leading-5 text-smoke-500">
 							<time dateTime={frontmatter.datetime}>{frontmatter.date}</time>
 							<span className="mx-1">&middot;</span>
 							<span>{readingTime}</span>

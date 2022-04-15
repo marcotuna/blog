@@ -25,25 +25,25 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 				<header className="flex flex-col justify-center items-start">
 					<BlogMetadata
 						imgClasses="rounded-full border-2 border-smoke-200"
-						authorClasses="text-lg font-bold leading-none text-blue-700 dark:text-fluencyy-400"
+						authorClasses="text-lg font-bold leading-none text-blue-700"
 					>
 						<small className="text-xs leading-none text-smoke-500">
 							{post.frontmatter.date} &middot; {post.fields.readingTime.text}
 						</small>
 						<p
-							className="text-body text-blue-600 dark:text-fluencyy-300 leading-snug"
+							className="text-body text-blue-600 leading-snug"
 							dangerouslySetInnerHTML={{
 								__html: post.frontmatter.description || post.excerpt,
 							}}
 						></p>
 					</BlogMetadata>
-					<h1 className="pt-10 font-bold text-4xl md:text-5xl leading-tight text-blue-700 dark:text-fluencyy-400">
+					<h1 className="pt-10 font-bold text-4xl md:text-5xl leading-tight text-blue-700">
 						{post.frontmatter.title}
 					</h1>
 				</header>
 				<hr className="mt-2 mb-8" />
 				<section
-					className="markdown text-lg md:text-base tracking-wide leading-relaxed md:leading-loose text-smoke-900 dark:text-smoke-200"
+					className="markdown text-lg md:text-base tracking-wide leading-relaxed md:leading-loose text-smoke-900"
 					dangerouslySetInnerHTML={{ __html: post.html }}
 				/>
 			</article>
@@ -53,10 +53,10 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 			<nav className="flex flex-wrap justify-between">
 				{previous ? (
 					<div className="mr-auto">
-						<p className="text-sm text-left text-smoke-400 dark:text-fluencyy-300">Previous</p>
+						<p className="text-sm text-left text-smoke-400">Previous</p>
 						<Link
 							to={previous.fields.slug}
-							className="break-word text-smoke-900 dark:text-smoke-200 hover:text-blue-900 dark-hover:text-smoke-400"
+							className="break-word text-smoke-900 hover:text-blue-900 dark-hover:text-smoke-400"
 							rel="prev"
 						>
 							← {previous.frontmatter.title}
@@ -67,10 +67,10 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 				)}
 				{next ? (
 					<div className="ml-auto">
-						<p className="text-sm text-right text-smoke-400 dark:text-fluencyy-300">Next</p>
+						<p className="text-sm text-right text-smoke-400">Next</p>
 						<Link
 							to={next.fields.slug}
-							className="break-word text-smoke-900 dark:text-smoke-200 hover:text-blue-900 dark-hover:text-smoke-400"
+							className="break-word text-smoke-900 hover:text-blue-900 dark-hover:text-smoke-400"
 							rel="next"
 						>
 							{next.frontmatter.title} →

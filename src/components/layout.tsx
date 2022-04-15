@@ -19,12 +19,12 @@ const Layout = ({ children }) => {
 
 	const LayoutHeader = () => {
 		return (
-			<header className="w-full h-20 fixed z-50 border-b border-smoke-200 bg-gray-50 dark:bg-smoke-900">
+			<header className="w-full h-20 fixed z-50 border-b border-smoke-200 bg-gray-50">
 				<nav className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
 					<Link to={`/`}>
 						<img src={logoUrl} alt="MarcoPSantos logo" width="128" />
 					</Link>
-					<span className="text-blue-800 dark:text-fluencyy-200 p-5">{description}</span>
+					<span className="text-blue-800 p-5">{description}</span>
 				</nav>
 			</header>
 		);
@@ -36,14 +36,14 @@ const Layout = ({ children }) => {
 				<p className="text-center">
 					<Link
 						to={`/`}
-						className="underline font-mono font-bold text-smoke-900 dark:text-smoke-200 hover:text-smoke-400 dark-hover:text-smoke-400"
+						className="underline font-mono font-bold text-smoke-900 hover:text-smoke-400 dark-hover:text-smoke-400"
 					>
 						{title}
 					</Link>
-					<span className="mx-2 text-base leading-6 text-smoke-600 dark:text-smoke-300">{description}</span>
+					<span className="mx-2 text-base leading-6 text-smoke-600">{description}</span>
 					<a
 						href="/rss.xml"
-						className="inline-flex h-4 w-4 md:h-3 md:w-3 text-smoke-600 dark:text-smoke-300 hover:text-smoke-400 dark-hover:text-smoke-400"
+						className="inline-flex h-4 w-4 md:h-3 md:w-3 text-smoke-600 hover:text-smoke-400 dark-hover:text-smoke-400"
 					>
 						<svg className="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M3.429 24a3.429 3.429 0 100-6.857 3.429 3.429 0 000 6.857zM24 24h-4.629C19.371 13.371 10.63 4.629 0 4.629V0c13.2 0 24 10.8 24 24z" />
@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
 						</svg>
 					</a>
 				</p>
-				<p className="text-center pt-2 text-sm leading-6 text-smoke-400 dark:text-smoke-500">
+				<p className="text-center pt-2 text-sm leading-6 text-smoke-400">
 					&copy; {new Date().getFullYear()}{' '}
 					<a
 						className="underline font-mono font-bold hover:text-smoke-800 dark-hover:text-smoke-200"
