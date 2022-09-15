@@ -28,7 +28,7 @@ const CMS_APP = () => {
 		config: {
 			backend: {
 				name: 'proxy',
-				proxy_url: (process.env.CMS_PROXY_URL || '//' + window.location.host) + '/api/v1'
+				proxy_url: (process.env.CMS_PROXY_URL || '//localhost:9081') + '/api/v1'
 			} 
 		},	
 	} as any);
