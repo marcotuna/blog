@@ -136,14 +136,6 @@ module.exports = {
 			},
 		},
 		{
-			resolve: 'gatsby-plugin-netlify-cms',
-			options: {
-				modulePath: resolve('src/cms/index.tsx'),
-				manualInit: true,
-				htmlTitle: 'CMS',
-			},
-		},
-		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
 				name: SITE_METADATA.title,
@@ -158,7 +150,6 @@ module.exports = {
 				icon: 'content/favicon.png',
 			},
 		},
-		'gatsby-plugin-sitemap',
-		'gatsby-plugin-netlify'
+		'gatsby-plugin-sitemap'
 	],
 };

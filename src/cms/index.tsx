@@ -1,11 +1,5 @@
-import CMS from 'netlify-cms-app';
-// import cloudinary from 'netlify-cms-media-library-cloudinary';
-import React, { useEffect } from 'react';
 import { render } from 'react-dom';
 import '../styles/main.scss';
-import BlogPostPreview from './blog.preview';
-
-const IS_DEV = process.env.NODE_ENV === 'development';
 
 const createRoot = () => {
 	const $root = document.createElement('div');
@@ -20,20 +14,4 @@ const createRoot = () => {
 	return $root;
 };
 
-const CMS_APP = () => {
-	CMS.registerPreviewTemplate('blog', BlogPostPreview);
-
-	// For some reason this isn't working properly
-	CMS.init({
-		config: {
-			backend: {
-				name: 'proxy',
-				proxy_url: (process.env.CMS_PROXY_URL || '//localhost:9081') + '/api/v1'
-			} 
-		},	
-	} as any);
-
-	return <div id="nc-root" className="stencilbook-custom-cms"></div>;
-};
-
-render(<CMS_APP />, createRoot());
+render(createRoot());
