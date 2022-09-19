@@ -34,7 +34,7 @@ I decided to use Tailscale because it's based on Wireguard, easier to set up, av
 
 The Android APK is not always available on the Playstore however it can be built by cloning the [Tailscale Android repository](https://github.com/tailscale/tailscale-android) and running the Dockerfile on it so it generates the latest APK.  
 
-```
+```shell
 git clone https://github.com/tailscale/tailscale-android.git
 docker build -t tailscale-android .
 ```
